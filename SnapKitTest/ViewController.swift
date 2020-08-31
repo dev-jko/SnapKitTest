@@ -7,14 +7,32 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
+    private let view1 = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setUpLayout()
+        bindStyles()
     }
 
+    private func setUpLayout() {
+        view.addSubview(view1)
+        
+        view1.snp.makeConstraints { maker in
+            maker.top.equalTo(view)
+            maker.bottom.equalTo(view)
+            maker.leading.equalTo(view)
+            maker.trailing.equalTo(view)
+        }
+    }
 
+    private func bindStyles() {
+        view.backgroundColor = .white
+        view1.backgroundColor = .green
+    }
 }
 
